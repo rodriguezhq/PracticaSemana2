@@ -1,0 +1,152 @@
+/* Importación de variables de Persona 5 */
+:root {
+  --persona-red: #d80027;
+  --persona-black: #0b0b0f;
+  --persona-ink: #15151b;
+  --persona-white: #f5f1ea;
+  --persona-gold: #f5c542;
+  --persona-gray: #8b8f99;
+  
+  /* Elevaciones de tu configuración */
+  --elevation-2: 0 2px 4px rgb(0 0 0 / 0.26), 0 8px 18px rgb(0 0 0 / 0.22);
+  --elevation-3: 0 4px 8px rgb(0 0 0 / 0.28), 0 14px 28px rgb(0 0 0 / 0.26);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Requerido en Paso 4  */
+}
+
+body {
+    background: var(--persona-black);
+    color: var(--persona-white);
+    font-family: "Instrument Sans", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    
+}
+
+/* Clases de utilidad de elevación */
+.elevation-2 { box-shadow: var(--elevation-2); }
+.elevation-3 { box-shadow: var(--elevation-3); }
+
+/* Paso 3: Flexbox con colores Persona */
+.main-header {
+    background: var(--persona-red);
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: skewY(-1deg); /* Toque estético tipo Persona */
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--persona-white);
+    background: var(--persona-black);
+    padding: 5px 15px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-link {
+    color: var(--persona-white);
+    text-decoration: none;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.nav-link:hover {
+    background: var(--persona-gold);
+    color: var(--persona-black);
+}
+
+/* Paso 4: Grid Responsivo  */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 40px 5%;
+}
+
+.card {
+    background: var(--persona-ink);
+    padding: 25px;
+    border-left: 5px solid var(--persona-red);
+    transition: transform 0.3s;
+}
+.hero{
+    padding-top: 20px;
+}
+.card:hover {
+    transform: scale(1.05) rotate(-1deg);
+}
+
+.card h3 {
+    color: var(--persona-red);
+    margin-bottom: 10px;
+}
+
+.border-gold {
+    border-left-color: var(--persona-gold);
+}
+
+.gold-text { color: var(--persona-gold); }
+
+/* Paso 5: Media Queries [cite: 20] */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        transform: none;
+    }
+    
+    .nav-menu {
+        margin-top: 15px;
+        display: flex;
+        gap: 10px;
+        padding: 5px;
+    }
+
+    .nav-link {
+        width: 36px;
+        height: 36px;
+        padding: 5px;
+    }
+
+    .nav-icon {
+        width: 22px;
+        height: 22px;
+    }
+}
+footer {
+    text-align: center;
+    padding: 14px 5%;
+    background: var(--persona-ink);
+}
+
+footer p {
+    margin: 0;
+}
